@@ -1,0 +1,61 @@
+/*
+  Nuovora palette. The ONLY file in the project that may contain colour literals.
+  Provenance: every value is a real pixel read from the brand assets, never typed from memory.
+  Method: k-means (k=8, 30 iterations) over opaque pixels, each centroid snapped to the nearest real pixel.
+  Source A: brand/LOGO NUOVORA PNG...png (RGBA, colourtype 6), resampled 2000 to 400 px with premultiplied alpha.
+    Coordinates below are in that 400 px grid (multiply by 5 for the source pixel).
+  Source B: brand/LOGO NUOVORA JPG.jpg.jpeg backdrop, same 400 px grid.
+  Source C: reference/NUOVORA 1.jpg.jpeg (1600x900), full resolution coordinates.
+*/
+:root {
+  color-scheme: light;
+
+  /* Source A: logo body */
+  --n-primary: #3796d2; /* A (265,210) cluster share 13%, deepest body tone */
+  --n-strong: #46a2db;  /* A (140,246) */
+  --n-mid: #56ace2;     /* A (141,239) */
+  --n-soft: #66b6e9;    /* A (287,170) */
+  --n-light: #76bfed;   /* A (243,160) largest cluster */
+  --n-sky: #8bcaf2;     /* A (256,140) */
+  --n-mist: #a8d9f8;    /* A (278,142) */
+  --n-glint: #dcf3fd;   /* A (151,145) rim highlight */
+
+  /* Source C: text ink, darkest saturated pixel of the slide wordmark, 4.7:1 on the surface below */
+  --n-ink: #2977b7;     /* C (373,36) */
+
+  /* Source B: backdrop tints */
+  --n-wash-1: #edf6fd;  /* B (200,100) */
+  --n-wash-2: #e7f3fa;  /* B (200,20) */
+  --n-wash-3: #dceaf5;  /* B (10,10) */
+  --n-shade: #bfd4e9;   /* B (390,390) */
+  --n-paper: #fefefc;   /* B (60,380) */
+
+  /* semantic aliases */
+  --c-bg: var(--n-wash-1);
+  --c-bg-alt: var(--n-wash-2);
+  --c-surface: var(--n-paper);
+  --c-ink: var(--n-ink);
+  --c-ink-soft: var(--n-primary);
+  --c-accent: var(--n-primary);
+  --c-accent-2: var(--n-light);
+  --c-line: color-mix(in srgb, var(--n-shade) 70%, transparent);
+  --c-shadow: color-mix(in srgb, var(--n-ink) 28%, transparent);
+  --c-glass: color-mix(in srgb, var(--n-paper) 72%, transparent);
+
+  /* motion (measured from the reference landing styles) */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-rise: 0.7s;
+  --dur-hero-in: 0.9s;
+  --dur-marquee: 120s;
+  --dur-ring: 3.2s;
+
+  /* shape (measured: frame 28/36, prompt panel 26, chamfer 10) */
+  --r-frame: 28px;
+  --r-panel: 26px;
+  --r-card: 22px;
+  --chamfer: 10px;
+}
+
+@media (min-width: 640px) {
+  :root { --r-frame: 36px; }
+}

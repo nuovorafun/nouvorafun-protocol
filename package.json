@@ -1,0 +1,19 @@
+{
+  "name": "nuovora",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nuovora static site",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "gates": "node scripts/gates.mjs",
+    "prep:assets": "node scripts/prep-assets.mjs",
+    "palette": "node scripts/palette.mjs",
+    "start": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5"
+  }
+}

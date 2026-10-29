@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuovora</title>
+<meta name="description" content="Nuovora is a confidential studio for conversing, composing and assembling, anchored to Robinhood Chain.">
+<link rel="icon" type="image/svg+xml" sizes="32x32" href="favicon.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/nuovora-logo.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+
+<header class="top" id="top">
+  <div class="top-row">
+    <a class="brand" href="#hero" aria-label="Nuovora home">
+      <img class="brand-logo" src="assets/nuovora-logo.png" alt="" width="44" height="32">
+      <span class="brand-word">Nuovora</span>
+      <span class="brand-chain">{{CHAIN_NAME}}</span>
+    </a>
+    <nav class="social" aria-label="Social">{{SOCIAL}}</nav>
+  </div>
+  {{CA_SLOT}}
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="mesh" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="grain"></i></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="pill" id="status-pill" data-reveal><span class="dot" aria-hidden="true"></span><span id="status-text">Connecting</span></p>
+      <h1 data-reveal>Speak plainly.<br>Own the&nbsp;outcome.</h1>
+      <p class="tag" data-reveal>Speak. Shape. Ship. Own.</p>
+      <div class="glass panel-where" data-reveal data-spot>
+        <dl>
+          <div><dt>Chain</dt><dd>{{CHAIN_NAME}}</dd></div>
+          <div><dt>Contract</dt><dd>{{CA_CHIP}}</dd></div>
+          <div><dt>Home</dt><dd>{{SITE_ROW}}</dd></div>
+        </dl>
+      </div>
+      <div class="chips" data-reveal-group>
+        <a class="chip" href="#market">Browse the board</a>
+        <a class="chip" href="#lanes">Meet the lanes</a>
+        <a class="chip" href="#plan">Check the roadmap</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="layer l-orb" data-depth="0.35"><i></i></div>
+      <div class="layer l-ring" data-depth="0.6"><i></i></div>
+      <div class="layer l-logo" data-depth="1"><img src="assets/nuovora-logo-hero.webp" alt="" width="1024" height="743" fetchpriority="high"></div>
+      <div class="layer l-spark" data-depth="1.6"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="ticker" aria-label="Streaming quotes" id="ticker">
+  <div class="ticker-mask"><div class="ticker-track" id="ticker-track"></div></div>
+</section>
+
+<section class="block" id="market">
+  <div class="wrap">
+    <header class="sec-head" data-reveal>
+      <p class="kicker">Market</p>
+      <h2>The ten busiest pairs, ranked by turnover.</h2>
+      <p class="lede">Quotes for coins carried by Robinhood, refreshed each minute while this tab is showing. The contract plays no part here.</p>
+    </header>
+
+    <div class="tiles" id="tiles" data-reveal-group>
+      <div class="tile" data-spot><span class="tile-k">Pairs ranked</span><strong class="tile-v" id="t-count">&mdash;</strong></div>
+      <div class="tile" data-spot><span class="tile-k">Busiest</span><strong class="tile-v" id="t-lead">&mdash;</strong></div>
+      <div class="tile" data-spot><span class="tile-k">Combined volume</span><strong class="tile-v" id="t-vol">&mdash;</strong></div>
+      <div class="tile" data-spot><span class="tile-k">Feed</span><strong class="tile-v" id="t-feed">&mdash;</strong></div>
+    </div>
+
+    <div class="board" data-reveal>
+      <div class="board-head" aria-hidden="true">
+        <span>Asset</span><span>Quote</span><span>24h</span><span>Volume</span><span></span>
+      </div>
+      <ol class="rows" id="rows" aria-live="polite" aria-busy="true"></ol>
+      <p class="board-note" id="board-note" role="status"></p>
+    </div>
+    <p class="fine" data-reveal>Figures are informational and carry no advice.</p>
+  </div>
+</section>
+
+<section class="block alt" id="lanes">
+  <div class="wrap">
+    <header class="sec-head" data-reveal>
+      <p class="kicker">Lanes</p>
+      <h2>One home, three doors.</h2>
+      <p class="lede">Choose the mode that fits the moment. Each one respects your material, always under your control.</p>
+    </header>
+    <div class="tabs" data-reveal>
+      <div class="tablist" role="tablist" aria-label="Lanes">
+        <button role="tab" id="tab-talk" aria-controls="panel-talk" aria-selected="true" tabindex="0">Converse</button>
+        <button role="tab" id="tab-make" aria-controls="panel-make" aria-selected="false" tabindex="-1">Compose</button>
+        <button role="tab" id="tab-build" aria-controls="panel-build" aria-selected="false" tabindex="-1">Assemble</button>
+        <i class="tab-ink" aria-hidden="true"></i>
+      </div>
+      <div class="tabpanels glass" data-spot>
+        <div role="tabpanel" id="panel-talk" aria-labelledby="tab-talk" class="tabpanel is-on">
+          <div class="tp-copy">
+            <h3>Think it over</h3>
+            <p>Bring a half-formed hunch and depart holding something sharper. Exchanges remain strictly yours, minus surveillance and clutter.</p>
+            <ul><li>Questions answered plainly</li><li>Attachments welcome</li><li>Erasable records</li></ul>
+          </div>
+          <div class="tp-art"><div class="mock-chat"><i class="m-user"></i><i class="m-bot"></i><i class="m-bot short"></i></div></div>
+        </div>
+        <div role="tabpanel" id="panel-make" aria-labelledby="tab-make" class="tabpanel" hidden>
+          <div class="tp-copy">
+            <h3>Shape something unseen</h3>
+            <p>Sketch a scene, a melody, a texture in words; it materialises in front of you. Whatever appears belongs to its maker, to retain, rework or discard.</p>
+            <ul><li>Stills out of a phrase</li><li>Motion minus the queue</li><li>Exports with no strings</li></ul>
+          </div>
+          <div class="tp-art"><div class="mock-canvas"><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <div role="tabpanel" id="panel-build" aria-labelledby="tab-build" class="tabpanel" hidden>
+          <div class="tp-copy">
+            <h3>Assemble and release</h3>
+            <p>Convert a sketch into a functioning utility, exercise it alongside its source, then release it under a banner of your choosing.</p>
+            <ul><li>Instant feedback as changes land</li><li>Rollback at any step</li><li>A single home for each project</li></ul>
+          </div>
+          <div class="tp-art"><div class="mock-code"><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="principles">
+  <div class="wrap">
+    <header class="sec-head" data-reveal>
+      <p class="kicker">Principles</p>
+      <h2>Discretion above all.</h2>
+    </header>
+    <div class="cards" data-reveal-group>
+      <article class="card" data-spot><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></span><h3>Yours to hold</h3><p>Material you generate remains with its owner, retained solely for the owner's return.</p></article>
+      <article class="card" data-spot><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></span><h3>Yours to steer</h3><p>Controls are within easy reach; defaults lean toward revealing less about you.</p></article>
+      <article class="card" data-spot><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><h3>Yours to erase</h3><p>Discarding a thread discards whatever grew from it. No ghost copies linger.</p></article>
+      <article class="card" data-spot><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18c4-10 12-10 16 0M8 18c2-5 6-5 8 0"/></svg></span><h3>Yours to share</h3><p>Sharing is a decision, not a default. A door opens solely on your word.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="plan">
+  <div class="wrap">
+    <header class="sec-head" data-reveal>
+      <p class="kicker">Plan</p>
+      <h2>Four stages, in order.</h2>
+      <p class="lede">A longer outline sits inside the whitepaper bundled alongside the repository.</p>
+    </header>
+    <ol class="phases" data-reveal-group>
+      <li class="phase" data-spot><span class="phase-n">I</span><h3>Foundation</h3><p>Establish the brand, the platform, plus the market board.</p></li>
+      <li class="phase" data-spot><span class="phase-n">II</span><h3>Welcome guests</h3><p>Invite a small circle, then tune the lanes around their routines.</p></li>
+      <li class="phase" data-spot><span class="phase-n">III</span><h3>Widen the circle</h3><p>Introduce ownership features plus ledger-native routes for participation.</p></li>
+      <li class="phase" data-spot><span class="phase-n">IV</span><h3>Long horizon</h3><p>Pass further steering toward the people who rely on it daily.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="links">
+  <div class="wrap">
+    <header class="sec-head" data-reveal>
+      <p class="kicker">Registry</p>
+      <h2>Where to find us when confirmation lands.</h2>
+    </header>
+    <div class="chiprow" data-reveal-group>{{LINK_CHIPS}}</div>
+  </div>
+</section>
+
+<section class="closing" id="start">
+  <div class="mesh soft" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i></div>
+  <div class="wrap closing-in">
+    <h2 data-reveal>Stay near while it lands.</h2>
+    <p class="lede" data-reveal>The market board above already streams. Remaining details arrive upon confirmation.</p>
+    <div class="chips" data-reveal-group>
+      <a class="cta" href="#market">Revisit the board</a>
+      <a class="chip" href="#top">Return to top</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#hero" aria-label="Nuovora home"><img class="brand-logo" src="assets/nuovora-logo.png" alt="" width="44" height="32"><span class="brand-word">Nuovora</span></a>
+    <p>{{CHAIN_NAME}} &middot; {{SITE_ROW}}</p>
+    <nav aria-label="Footer"><a href="#market">Market</a><a href="#lanes">Lanes</a><a href="#plan">Plan</a></nav>
+  </div>
+</footer>
+
+<script type="application/json" id="register">{{REGISTER_JSON}}</script>
+<script type="module" src="js/main.mjs"></script>
+</body>
+</html>

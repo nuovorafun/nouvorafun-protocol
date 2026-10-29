@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "records": {
+    "site": {
+      "label": "Site",
+      "state": "stated",
+      "value": "nuovora.fun",
+      "url": "https://nuovora.fun",
+      "source": "client statement",
+      "recordedOn": "2026-10-28"
+    },
+    "chain": {
+      "label": "Chain",
+      "state": "stated",
+      "value": "Robinhood Chain",
+      "source": "client statement",
+      "scope": "batch-level",
+      "recordedOn": "2026-10-28"
+    },
+    "ca": {
+      "label": "Contract",
+      "state": "absent",
+      "source": "client statement",
+      "checkedOn": "2026-10-28"
+    },
+    "x": {
+      "label": "X",
+      "state": "absent",
+      "source": "client statement",
+      "checkedOn": "2026-10-28"
+    },
+    "github": {
+      "label": "GitHub",
+      "state": "absent",
+      "source": "client statement",
+      "checkedOn": "2026-10-28"
+    },
+    "market": {
+      "label": "Market",
+      "state": "stated",
+      "value": "GeckoTerminal, Robinhood Chain trending pools",
+      "marketsUrl": "https://api.geckoterminal.com/api/v2/networks/robinhood/trending_pools?include=base_token,quote_token&page=1",
+      "source": "client statement",
+      "recordedOn": "2026-10-28"
+    }
+  }
+}

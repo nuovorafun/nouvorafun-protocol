@@ -1,0 +1,4 @@
+{
+  "note": "Real pixel values read by scripts/palette.mjs from brand/ and reference/ assets (k-means centroids snapped to real pixels, plus backdrop and wordmark samples). Gates require every tokens.css colour and every favicon fill to appear here.",
+  "hex": ["#76bfed", "#66b6e9", "#56ace2", "#3796d2", "#46a2db", "#8bcaf2", "#a8d9f8", "#dcf3fd", "#2977b7", "#edf6fd", "#e7f3fa", "#dceaf5", "#bfd4e9", "#fefefc"]
+}
